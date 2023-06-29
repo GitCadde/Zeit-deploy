@@ -3,6 +3,7 @@ import sqlite3
 from datetime import datetime
 import shelve
 import pyodbc
+import os
 
 
 app = Flask(__name__)
@@ -27,7 +28,7 @@ app.config['DATABASE'] = 'employees.db'
 
 # Verbindung zur SQLite-Datenbank herstellen
 def get_db_connection():
-    conn = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};Server=tcp:antocars.database.windows.net,1433;Database=employees;Uid=Carsten;Pwd=!Testing1234;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
+    conn = pyodbc.connect(os.getenv("DATABASE_URL"))
     cursor = conn.cursor()
     return conn, cursor
 
