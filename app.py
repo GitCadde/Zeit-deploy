@@ -28,12 +28,12 @@ app.config['DATABASE'] = 'employees.db'
 # Verbindung zur SQLite-Datenbank herstellen
 def get_db_connection():
     conn = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};Server=tcp:antocars.database.windows.net,1433;Database=employees;Uid=Carsten;Pwd=!Testing1234;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
-    return conn
+    cursor = conn.cursor()
+    return conn, cursor
 
 # Benutzer in der Datenbank speichern
 def add_employee(first_name, last_name, email, password):
-    conn = get_db_connection()
-    cursor = conn.cursor()
+    conn, cursor = get_db_connection()
     cursor.execute('INSERT INTO employee (first_name, last_name, email, password) VALUES (?, ?, ?, ?)', (first_name, last_name, email, password))
     conn.commit()
     conn.close()
@@ -55,20 +55,15 @@ def login():
         password = request.form['password']
 
         # Überprüfung der Anmeldedaten
-        conn = get_db_connection()
-        cursor = conn.cursor()
+        conn, cursor = get_db_connection()
         cursor.execute('SELECT * FROM employee WHERE email = ? AND password = ?', (email, password))
-        employee = cursor.fetchone()
-        conn.close()
-
-        if employee:
-            # Setzen der Benutzer-ID in der Sitzung
+        row = cursor.fetchone()
+        if row:
+            employee = {description[0]: value for description, value in zip(cursor.description, row)}
             session['user_id'] = employee['id']
-            # Weiterleitung zum Dashboard
             return redirect(url_for('dashboard'))
         else:
             return 'Ungültige Anmeldedaten'
-
     return render_template('login.html')
 
 
