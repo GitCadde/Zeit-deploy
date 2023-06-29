@@ -129,6 +129,7 @@ def logout():
 
 # Registrierungsseite
 @app.route('/register', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         first_name = request.form['first_name']
@@ -137,7 +138,7 @@ def register():
         password = request.form['password']
 
         # Überprüfung, ob der Benutzer bereits existiert
-        conn = get_db_connection()
+        conn, cursor = get_db_connection()
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM employee WHERE email = ?', (email,))
         employee = cursor.fetchone()
