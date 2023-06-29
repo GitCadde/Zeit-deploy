@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 import sqlite3
 from datetime import datetime
 import shelve
+import pyodbc
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
@@ -9,15 +11,15 @@ app.config['DATABASE'] = 'employees.db'
 
 # Datenbank-Initialisierung
 def initialize_database():
-    conn = sqlite3.connect(app.config['DATABASE'])
+    conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS employee (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            first_name TEXT NOT NULL,
-            last_name TEXT NOT NULL,
-            email TEXT NOT NULL,
-            password TEXT NOT NULL
+            first_name NVARCHAR(100) NOT NULL,
+            last_name NVARCHAR(100) NOT NULL,
+            email NVARCHAR(100) NOT NULL,
+            password NVARCHAR(100) NOT NULL
         )
     ''')
     conn.commit()
@@ -25,8 +27,7 @@ def initialize_database():
 
 # Verbindung zur SQLite-Datenbank herstellen
 def get_db_connection():
-    conn = sqlite3.connect(app.config['DATABASE'])
-    conn.row_factory = sqlite3.Row
+    conn = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};Server=tcp:antocars.database.windows.net,1433;Initial Catalog=employees;Persist Security Info=False;User ID=Carsten;Password=!Testing1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
     return conn
 
 # Benutzer in der Datenbank speichern
