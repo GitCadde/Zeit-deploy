@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'Zeitmanagement-A-C'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_81E7F054FE714994B72070ED48F150A5 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8123EE89021349B9A3A6CE8E09EF87F3 }}
