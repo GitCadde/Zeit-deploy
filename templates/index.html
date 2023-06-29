@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zeiterfassungstool - Startseite</title>
+    <link rel="stylesheet" href="/static/home.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Zeiterfassungstool</div>
+            <ul>
+                <li><a href="{{ url_for('login') }}">Anmelden</a></li>
+                <li><a href="{{ url_for('register') }}">Registrieren</a></li>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Willkommen beim Zeiterfassungstool</h1>
+            <p>Mit unserem Tool kannst du ganz einfach deine Arbeitszeit erfassen und verwalten.</p>
+            <a href="{{ url_for('register') }}" class="btn">Jetzt registrieren</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <i class="fas fa-clock"></i>
+            <h2>Einfache Zeitverfolgung</h2>
+            <p>Verfolge deine Arbeitszeit mit nur einem Klick und behalte den Überblick über deine Projekte.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-chart-bar"></i>
+            <h2>Detaillierte Berichte</h2>
+            <p>Generiere detaillierte Berichte über deine Arbeitszeiten, Projektfortschritte und vieles mehr.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-users"></i>
+            <h2>Teammanagement</h2>
+            <p>Verwalte dein Team, weise Aufgaben zu und behalte den Fortschritt im Blick.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Zeiterfassungstool. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>
+

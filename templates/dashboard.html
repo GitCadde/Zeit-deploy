@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Der Zeitverfolger</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+
+<body>
+    
+    <header>
+        <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+        <nav>
+            <div class="logo">Zeiterfassungstool</div>
+            <ul>
+                <li><a href="/">Startseite</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Abmelden</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+
+    
+        <h1 id="headline">Dashboard Zeitmanagement</h1>
+
+    <h2 id="switch"></h2>
+    <form id="task-form">
+        <input type="text" name="task-input" id="task-input" placeholder="Woran arbeiten Sie?" />
+        <input type="submit" id="task-submit" value="Aufgabe hinzufügen" />
+    </form>
+    <main>
+        <section class="task-list">
+            <h2>Aufgaben</h2>
+            <div id="tasks"></div>
+        </section>
+    </main>
+
+    <script src="/static/dashboard.js"></script>
+</body>
+
+</html>

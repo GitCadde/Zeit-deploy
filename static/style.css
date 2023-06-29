@@ -1,0 +1,77 @@
+body {
+    background: linear-gradient(to bottom right, #8fed8f, blue, purple);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_allignment {
+    text-align: center;
+}
+
+.container {
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 1, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    z-index: 99;
+}
+
+.login-form, .register-form {
+    text-align: center;
+}
+
+.login-form h1, .register-form h1 {
+    margin-bottom: 20px;
+}
+
+.login-form input, .register-form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    width: 90%;
+}
+
+.login-form button, .register-form button {
+    width: 95%;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.login-form button:hover, .register-form button:hover {
+    background-color: #45a049;
+    margin-bottom: 10px;
+}
+
+.register-link {
+    width: 90%;
+    text-align: left;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.register-link a {
+    color: blue;
+    text-decoration: underline;
+}
+
+.startseite-link a {
+    color: blue;
+    text-decoration: underline;
+}

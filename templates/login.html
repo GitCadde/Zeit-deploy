@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login-Seite</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="container_allignment">
+        <div class="container">
+            <div class="login-form">
+                <h1>Login</h1>
+                <form action="{{ url_for('login') }}" method="POST">
+                    <input type="email" id="email" name="email" placeholder="Email-Adresse" required class="text-input">
+                    <input type="password" id="password" name="password" placeholder="Passwort" required class="text-input">
+                    <button type="submit">Anmelden</button>
+                </form>
+                <div class="register-link">
+                    Noch keinen Account? <a href="{{ url_for('register') }}">Jetzt registrieren</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

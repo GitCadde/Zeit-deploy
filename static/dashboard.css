@@ -1,0 +1,173 @@
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
+body {
+  background-color: #f8f9fa;
+  color: #333;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#headline {
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 75px;
+}
+
+#switch {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #6c757d;
+  text-shadow: 1px 3px 1px #002925;
+}
+
+#task-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#task-input {
+  flex: 1 1 0%;
+  padding: 0.75rem 0.5rem;
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+#task-submit {
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
+
+#task-submit:hover {
+  opacity: 0.8;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.task-list {
+  padding: 1rem 0;
+}
+
+.task-list h2 {
+  font-weight: 400;
+  letter-spacing: normal;
+  margin-bottom: 0.5rem;
+}
+
+#tasks {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#tasks .task {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task .content {
+  flex: 1 1 0%;
+}
+
+.task .content .text {
+  color: #333;
+  padding-top: 0.5rem;
+  width: 100%;
+  display: block;
+  transition: 0.4s;
+}
+
+.task .content .text:not(:read-only) {
+  border-bottom: 1px solid #ced4da;
+  color: #6c757d;
+}
+
+.task .counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.2rem;
+}
+
+.task .counter .controls button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  margin-right: 0.25rem;
+  transition: 0.4s;
+  cursor: pointer;
+  border: none;
+}
+
+.task .counter .controls button:hover {
+  opacity: 0.8;
+}
+
+.task .actions {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.task .actions button {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.4s;
+  border: none;
+}
+
+.task .actions .edit,
+.download {
+  background-color: #6c757d;
+  border: 1px solid #6c757d;
+}
+
+.task .actions .delete {
+  background-color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.actions button:hover {
+  opacity: 0.8;
+}
+
+/* nav */
+
+.nav-start {
+  text-align: center;
+  font-family: "Avenir Next", sans-serif;
+  font-weight: 700;
+  background-color: transparent !important;
+  color: #fff !important;
+  margin-bottom: 2rem;
+}
+
+.nav-start:hover {
+  color: coral !important;
+}
+
+a {
+  text-decoration: none;
+}

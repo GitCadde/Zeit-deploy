@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <title>Registrierung</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="container_allignment">
+        <div class="container">
+            <div class="register-form">
+                <h1>Registrierung</h1>
+                {% if message %}
+                    <div class="success-message">{{ message }}</div>
+                {% endif %}
+                <form action="{{ url_for('register') }}" method="POST">
+                    <input type="text" name="first_name" placeholder="Vorname" required class="text-input">
+                    <input type="text" name="last_name" placeholder="Nachname" required class="text-input">
+                    <input type="email" name="email" placeholder="Email-Adresse" required class="text-input">
+                    <input type="password" name="password" placeholder="Passwort" required class="text-input">
+                    <button type="submit">Registrieren</button>
+                </form>
+                <div class="startseite-link">
+                    <a href="{{ url_for('index') }}">Zurück zur Startseite</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
