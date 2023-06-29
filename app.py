@@ -10,20 +10,20 @@ app.config['SECRET_KEY'] = 'your-secret-key'
 app.config['DATABASE'] = 'employees.db'
 
 # Datenbank-Initialisierung
-def initialize_database():
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS employee (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            first_name NVARCHAR(100) NOT NULL,
-            last_name NVARCHAR(100) NOT NULL,
-            email NVARCHAR(100) NOT NULL,
-            password NVARCHAR(100) NOT NULL
-        )
-    ''')
-    conn.commit()
-    conn.close()
+# def initialize_database():
+#     conn = get_db_connection()
+#     cursor = conn.cursor()
+#     cursor.execute('''
+#         CREATE TABLE IF NOT EXISTS employee (
+#             id INTEGER PRIMARY KEY AUTOINCREMENT,
+#             first_name NVARCHAR(100) NOT NULL,
+#             last_name NVARCHAR(100) NOT NULL,
+#             email NVARCHAR(100) NOT NULL,
+#             password NVARCHAR(100) NOT NULL
+#         )
+#     ''')
+#     conn.commit()
+#     conn.close()
 
 # Verbindung zur SQLite-Datenbank herstellen
 def get_db_connection():
@@ -160,5 +160,5 @@ def register():
     return render_template('register.html')
 
 if __name__ == '__main__':
-    initialize_database()
+    # initialize_database()
     app.run(debug=False, host='0.0.0.0')
