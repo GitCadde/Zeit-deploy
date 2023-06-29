@@ -3,7 +3,7 @@ import pyodbc
 
 # Verbindung zur SQLite-Datenbank herstellen
 def get_db_connection():
-    conn = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};Server=tcp:antocars.database.windows.net,1433;Initial Catalog=employees;Persist Security Info=False;User ID=Carsten;Password=!Testing1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
+    conn = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};Server=tcp:antocars.database.windows.net,1433;Database=employees;Uid=Carsten;Pwd=!Testing1234;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;")
     return conn
 
 # Benutzer in der Datenbank speichern
